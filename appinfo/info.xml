@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+    <id>readlater</id>
+    <name>Read Later</name>
+    <description>Read Later app</description>
+    <licence>agpl</licence>
+    <author>Ruchita</author>
+    <version>0.0.1</version>
+    <require>6.80</require>
+</info>
