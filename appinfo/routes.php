@@ -25,10 +25,3 @@ $application->registerRoutes($this, array('routes' => array(
 	array('name' => 'page#index', 'url' => '/', 'verb' => 'GET'),
     array('name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'),
 )));
-
-
-$this->create('index.php', '/')->action(
-	function($params){
-		require __DIR__ . '/../index.php';
-    }
-);
