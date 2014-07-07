@@ -21,7 +21,7 @@ namespace OCA\ReadLater\AppInfo;
     'order' => 10,
 
     // the route that will be shown on startup
-    'href' => \OCP\Util::linkToRoute('index.php'),
+    'href' => \OCP\Util::linkToRoute('readlater.page.index'),
 
     // the icon that will be shown in the navigation
     // this file needs to exist in img/
