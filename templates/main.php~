@@ -34,7 +34,7 @@
 		<?php print_unescaped($this->inc('part.images')) ?>
 		<?php print_unescaped($this->inc('part.articles')) ?>
 		<?php print_unescaped($this->inc('part.liked')) ?>
-			
+			<?php print_unescaped($this->inc('part.listfeed', array('folderId' => '0'))) ?>
 			
 		</ul>
 
