@@ -1,7 +1,0 @@
-<li>
-	<a class="icon-search" 
-	   href="#">
-	   <?php p($l->t('Toggle View Mode'))?>
-	</a>
-	
-</li>
