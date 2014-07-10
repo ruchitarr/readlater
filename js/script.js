@@ -14,6 +14,7 @@
 		console.log("hello");
 		$('a').click(function () {
 			alert('Hello from your script file');
+			console.log("hello");
 		});
 
 		$('#echo').click(function () {

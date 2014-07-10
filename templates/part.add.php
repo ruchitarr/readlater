@@ -1,5 +1,5 @@
-<li class="add-new">
-        <a class="list-title list-title-with-icon">+ <span><?php p($l->t('Add Website'))?></span></a>
+<li>
+        <a class="list-title list-title-with-icon"><img src="<?php\OCP\Util::imagePath('readlater', '../img/add.svg');?>">  <span><?php p($l->t('Add Content'))?></span></a>
 
         <div class="add-new-popup">
 
