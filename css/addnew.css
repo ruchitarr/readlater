@@ -26,10 +26,13 @@
 }
 
 .add-new-popup {
-	display: none;
+	
 	padding: 15px 10px;
 }
 
+.hidden {
+display: none;
+}
 .add-new input[type=text] {
 	width: 120px;
 }

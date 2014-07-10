@@ -11,9 +11,11 @@
 (function ($, OC) {
 
 	$(document).ready(function () {
+		$("div#addContent").hide();
 		console.log("hello");
 		$('a').click(function () {
 			alert('Hello from your script file');
+			$("div#addContent").show();
 			console.log("hello");
 		});
 
