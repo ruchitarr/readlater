@@ -1,7 +1,4 @@
-#hello {
-	color: red;
+#firstrun {
+ padding: 3em;  margin: 2em;
 }
-<div id="readlater">
-    <div id="app-navigation">Test navigation</div>
-    <div id="app-content">Test content</div>
-</div>
+

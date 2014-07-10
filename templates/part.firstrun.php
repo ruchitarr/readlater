@@ -1,3 +1,4 @@
-<h1 class="message">
-	<?php p($l->t('Welcome to the ownCloud ReadLater app! You have no articles saved for reading later. Drag this button to your web browser and click it when you want to save a webpage quickly.')  ?>
-</h1>
+<h2 class=message>
+<?php p('Welcome to the ownCloud ReadLater app!'); ?>
+</h2>
+ <p> <?php p('You have no articles saved for reading later. Use "Add Content" to save content for reading later'); ?></p>

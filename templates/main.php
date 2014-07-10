@@ -21,8 +21,12 @@
 		<?php print_unescaped($this->inc('part.liked')) ?>
 		</ul>
 	</div>
-	<div id="app-content">Your content</div>
-
+	<div id="app-content">
+	<div id="firstrun">
+		<?php print_unescaped($this->inc('part.firstrun')) ?>
+	</div>	
+	</div>
+	
 	
 	
 
