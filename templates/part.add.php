@@ -9,10 +9,10 @@
 
                                 <input type="text" 
                                         placeholder="<?php p($l->t('Address')); ?>" 
-                                        name="adress"
+                                        name="address"
                                         autofocus>
-                                <button title="<?php p($l->t('Add')); ?>" 
-                                                class="primary"><?php p($l->t('Add')); ?></button>
+                               <button type="submit" id="addUrlBtn"><?php p($l->t('Add')); ?></button>
+
                         </form>
                         
                 </fieldset>

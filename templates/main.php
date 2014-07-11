@@ -1,11 +1,17 @@
 <?php 
+
 \OCP\Util::addScript('readlater', 'script');  
 \OCP\Util::addScript('readlater', 'bootstrap');  
 \OCP\Util::addScript('readlater', 'bootstrap.min'); 
 
+
+
 \OCP\Util::addStyle('readlater', 'style'); 
 \OCP\Util::addStyle('readlater', 'bootstrap');  
-
+function readlaterAdd(){
+	$l = new OC_l10n('readlater');
+	
+}
 ?>
 
 <div id="app">

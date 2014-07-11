@@ -18,6 +18,11 @@
 			$("div#addContent").show();
 			console.log("hello");
 		});
+		//Save Content
+		$('#addUrlBtn').click(function(){
+		saveData();
+
+		});
 
 		$('#echo').click(function () {
 			var url = OC.generateUrl('/apps/readlater/echo');
@@ -31,5 +36,16 @@
 
 		});
 	});
+
+//Function to save Content
+function saveData(){  
+$.ajax({
+       type: "POST",
+   url: "addDataProcess.php",
+   data: { url: "http://google.com" }
+    }).done(function( msg ) {
+ alert( "Your content was saved: " + msg );
+    });
+}
 
 })(jQuery, OC);
