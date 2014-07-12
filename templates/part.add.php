@@ -5,7 +5,7 @@
 
                 <fieldset class="personalblock">
 
-                        <form>
+                        <form method="post" name="new_item" id="editNewItem">
 
                                 <input type="text" 
                                         placeholder="<?php p($l->t('Address')); ?>" 
