@@ -8,6 +8,11 @@
 		<name>*dbprefix*readlater</name>
 		<declaration>
 			<field>
+				<name>id</name>
+				<type>integer</type>
+				<length>64</length>
+			</field>
+			<field>
 				<name>url</name>
 				<type>text</type>
 				<default></default>
