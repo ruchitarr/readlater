@@ -9,20 +9,26 @@
  * @copyright Ruchita 2014
  */
 
+
 namespace OCA\ReadLater\Controller;
 
-
+use \OCA\ReadLater\BusinessLayer\ItemBusinessLayer;
 use \OCP\IRequest;
 use \OCP\AppFramework\Http\TemplateResponse;
 use \OCP\AppFramework\Controller;
+use \OCP\AppFramework\Http;
+use \OCP\AppFramework\Http\JSONResponse;
 
-class PageController extends Controller {
-
+class ItemApiController extends Controller {
     private $userId;
+	private $ItemBusinessLayer;
+	public $request; 
 
-    public function __construct($appName, IRequest $request, $userId){
+    public function __construct($appName, IRequest $request,  ItemBusinessLayer $ItemBusinessLayer){
         parent::__construct($appName, $request);
-        $this->userId = $userId;
+		$this->ItemBusinessLayer = $ItemBusinessLayer;
+		$this->request = $request;
+
     }
 
 
@@ -32,24 +38,23 @@ class PageController extends Controller {
      *          it up in the docs or you might create a security hole. This is
      *          basically the only required method to add this exemption, don't
      *          add it to any other method if you don't exactly know what it does
-     *
      * @NoAdminRequired
-     * @NoCSRFRequired
+	 * @CORS
      */
-    public function index() {
-        $params = array('user' => $this->userId);
-        return new TemplateResponse($this->appName, 'main', $params);  // templates/main.php
-    }
 
+	/**
+	 * addURL function
+	 *
+	 */
+	public function addURL() {
+		$url = $this->params('url');
+		$result['itemid'] = $this->ItemBusinessLayer->create($url);
+	}
+	
 
-    /**
-     * Simply method that posts back the payload of the request
-     * @NoAdminRequired
-     */
-    public function doEcho($echo) {
-        return array('echo' => $echo);
-    }
+	
 
+	
 
 
 }

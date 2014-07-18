@@ -9,7 +9,9 @@
  * @copyright Ruchita 2014
  */
 
-namespace OCA\ReadLater\AppInfo;
+namespace OCA\ReadLater;
+use \OCA\ReadLater\AppInfo\Application;
+
 
 /**
  * Create your routes in here. The name is the lowercase name of the controller
@@ -24,4 +26,6 @@ $application = new Application();
 $application->registerRoutes($this, array('routes' => array(
 	array('name' => 'page#index', 'url' => '/', 'verb' => 'GET'),
     array('name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'),
+	array('name' => 'page#addUrl', 'url' => '/add/url', 'verb' => 'POST'),
+	
 )));

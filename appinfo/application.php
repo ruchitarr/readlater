@@ -15,7 +15,7 @@ namespace OCA\ReadLater\AppInfo;
 use \OCP\AppFramework\App;
 
 use \OCA\ReadLater\Controller\PageController;
-use \OCA\Passman\Db\ItemManager;
+use \OCA\ReadLater\Db\ItemManager;
 
 
 

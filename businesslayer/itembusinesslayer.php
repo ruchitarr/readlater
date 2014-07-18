@@ -9,10 +9,10 @@
  * @copyright Ruchita Rathi 2014
  */
 
-namespace OCA\readlater\BusinessLayer;
+namespace OCA\ReadLater\BusinessLayer;
 
-use \OCA\readlater\Db\ItemManagerManager;
-use \OCA\readlater\Utility\Config;
+use \OCA\ReadLater\Db\ItemManagerManager;
+use \OCA\ReadLater\Utility\Config;
 
 class ItemBusinessLayer {
 	private $ItemManager;
