@@ -16,6 +16,8 @@ use \OCP\AppFramework\App;
 
 use \OCA\ReadLater\Controller\PageController;
 use \OCA\ReadLater\Db\ItemManager;
+use \OCA\ReadLater\Controller\ItemApiController;
+use \OCA\ReadLater\BusinessLayer\ItemBusinessLayer;
 
 
 
@@ -37,6 +39,24 @@ class Application extends App {
 				$c->query('UserId')
 			);
 		});
+		/** Register ItemAPIController
+		*/
+		$container->registerService('ItemApiController', function($c) {
+			return new ItemApiController(
+				$c->query('AppName'), 
+				$c->query('Request'),
+				$c->query('ItemBusinessLayer')
+			);
+		
+		/**
+		* Business Layer
+		*/
+
+		$container->registerService('ItemBusinessLayer', function($c) {
+			return new ItemBusinessLayer(
+				$c->query('ItemManager')
+			);
+		});
 		
 		/**
 		 * Mappers
@@ -53,7 +73,9 @@ class Application extends App {
 		 */
 		$container->registerService('UserId', function($c) {
 			return \OCP\User::getUser();
-		});		
+		});	
+		
+			
 		
 	}
 
