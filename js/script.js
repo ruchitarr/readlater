@@ -17,6 +17,7 @@
 		console.log("hello");
 		$('a').click(function () {
 			alert('Hello from your script file');
+
 			$("div#addContent").show();
 			console.log("hello");
 		});
@@ -44,7 +45,7 @@ function saveData(){
 $.ajax({
        type: "POST",
    url: OC.generateUrl('/apps/readlater/add/url'),
-   data: {q: $('#address').val()}
+   data: {echo: $('#address').val()}
     }).done(function( msg ) {
 	
  alert( "Your content was saved: " + msg );
