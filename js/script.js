@@ -11,6 +11,8 @@
 (function ($, OC) {
 
 	$(document).ready(function () {
+
+
 		$("div#addContent").hide();
 		console.log("hello");
 		$('a').click(function () {
@@ -41,8 +43,8 @@
 function saveData(){  
 $.ajax({
        type: "POST",
-   url: "addURL",
-   data: { url: "http://google.com" }
+   url: OC.generateUrl('/apps/readlater/route/add/url'),
+   data: {q: $('#address').val()}
     }).done(function( msg ) {
  alert( "Your content was saved: " + msg );
     });
