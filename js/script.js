@@ -41,7 +41,7 @@
 function saveData(){  
 $.ajax({
        type: "POST",
-   url: "addDataProcess.php",
+   url: "addURL",
    data: { url: "http://google.com" }
     }).done(function( msg ) {
  alert( "Your content was saved: " + msg );

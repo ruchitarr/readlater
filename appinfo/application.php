@@ -47,7 +47,7 @@ class Application extends App {
 				$c->query('Request'),
 				$c->query('ItemBusinessLayer')
 			);
-		
+		});
 		/**
 		* Business Layer
 		*/

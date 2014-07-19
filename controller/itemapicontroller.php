@@ -43,12 +43,14 @@ class ItemApiController extends Controller {
      */
 
 	/**
-	 * addURL function
+	 * Create item function
 	 *
+	 *
+	 * @NoAdminRequired
 	 */
 	public function addURL() {
 		$url = $this->params('url');
-		$result['itemid'] = $this->ItemBusinessLayer->create($url);
+		return ['itemid' => $this->ItemBusinessLayer->create($url)];
 	}
 	
 
