@@ -43,9 +43,10 @@
 function saveData(){  
 $.ajax({
        type: "POST",
-   url: OC.generateUrl('/apps/readlater/route/add/url'),
+   url: OC.generateUrl('/apps/readlater/add/url'),
    data: {q: $('#address').val()}
     }).done(function( msg ) {
+	
  alert( "Your content was saved: " + msg );
     });
 }
