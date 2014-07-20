@@ -44,11 +44,15 @@
 
 //Function to save Content
 function saveData(){  
-
+var formData = {
+	'url':  $('#url').val(),
+	'title': '',
+	'description': ''
+}
 $.ajax({
 	type: "POST",
   	url: OC.generateUrl('/apps/readlater/add/url'),
-  	data: {echo: $('#url').val()}
+  	data: formDate
     }).done(function( msg ) {
 	
  alert( "Your content was saved: " + msg );
