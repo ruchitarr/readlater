@@ -16,7 +16,7 @@
 				<name>url</name>
 				<type>text</type>
 				<default></default>
-				<notnull>false</notnull>
+				<notnull>true</notnull>
 				<length>4096</length>
 			</field>
 			
