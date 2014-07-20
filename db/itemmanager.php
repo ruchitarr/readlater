@@ -30,8 +30,7 @@ class ItemManager {
 		$sql = 'INSERT INTO `*PREFIX*readlater_items` (`url`)';
 		$sql .= ' VALUES (?)';
 		$query = $this -> db -> prepareQuery($sql);
-		$query -> bindParam(1, $item['url'], \PDO::PARAM_STR);
-		$result = $query -> execute();
+		$result = $query -> execute(array($item['url']));
 		return $this -> db -> getInsertId('`*PREFIX*readlater_items`');
 
 	}

@@ -5,17 +5,15 @@
 
                 <fieldset class="personalblock">
 
-                        <form method="post" name="new_item" id="editNewItem">
 
                                 <input type="text" 
                                         placeholder="<?php p($l->t('Address')); ?>" 
                                         name="address"
 					id="url"
                                         autofocus>
-                               <button type="submit" id="addUrlBtn"><?php p($l->t('Add')); ?></button>
+                               <button  id="addUrlBtn"><?php p($l->t('Add')); ?></button>
 
-                        </form>
-                        
+
                 </fieldset>
         </div>
 </li>
