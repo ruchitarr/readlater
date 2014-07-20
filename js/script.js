@@ -23,6 +23,8 @@
 		});
 		//Save Content
 		$('#addUrlBtn').click(function(){
+		alert("Add button clicked");
+		alert($('#url').val());
 		saveData();
 
 		});
@@ -42,10 +44,11 @@
 
 //Function to save Content
 function saveData(){  
+
 $.ajax({
-       type: "POST",
-   url: OC.generateUrl('/apps/readlater/add/url'),
-   data: {echo: $('#address').val()}
+	type: "POST",
+  	url: OC.generateUrl('/apps/readlater/add/url'),
+  	data: {echo: $('#url').val()}
     }).done(function( msg ) {
 	
  alert( "Your content was saved: " + msg );

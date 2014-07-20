@@ -10,7 +10,7 @@
                                 <input type="text" 
                                         placeholder="<?php p($l->t('Address')); ?>" 
                                         name="address"
-					id="address"
+					id="url"
                                         autofocus>
                                <button type="submit" id="addUrlBtn"><?php p($l->t('Add')); ?></button>
 
