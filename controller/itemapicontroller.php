@@ -50,7 +50,7 @@ class ItemApiController extends Controller {
 	 */
 	public function addURL() {
 		$url = $this->params('url');
-		return ['itemid' => $this->ItemBusinessLayer->create($url)];
+		return array('itemid' => $this->ItemBusinessLayer->create($url));
 	}
 	
 

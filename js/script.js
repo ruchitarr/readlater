@@ -48,7 +48,7 @@ function saveData(){
 $.ajax({
 	type: "POST",
   	url: OC.generateUrl('/apps/readlater/add/url'),
-  	data: {echo: $('#url').val()}
+  	data: {url: $('#url').val()}
     }).done(function( msg ) {
 	
  alert( "Your content was saved: " + msg );

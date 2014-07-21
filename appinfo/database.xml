@@ -10,6 +10,8 @@
 			<field>
 				<name>id</name>
 				<type>integer</type>
+                <notnull>true</notnull>
+                <autoincrement>1</autoincrement>
 				<length>64</length>
 			</field>
 			<field>
