@@ -12,7 +12,7 @@
 				<type>integer</type>
                 <notnull>true</notnull>
                 <autoincrement>1</autoincrement>
-				<length>64</length>
+				<length>4</length>
 			</field>
 			<field>
 				<name>url</name>
@@ -24,11 +24,11 @@
 			
 
 			<index>
-				<name>id</name>
-				<unique>true</unique>
+				<name>readlater_items_id</name>
+
 				<field>
 					<name>id</name>
-					<sorting>descending</sorting>
+
 				</field>
 			</index>
 		</declaration>
