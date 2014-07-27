@@ -53,6 +53,14 @@ class ItemApiController extends Controller {
 		return array('itemid' => $this->ItemBusinessLayer->create($url));
 	}
 	
+	/**
+     	 * Simply method that posts back the payload of the request
+     	 * @NoAdminRequired
+     	 */
+	public function getAll() {
+	$result = $this->ItemBusinessLayer->getItems();
+	return new JSONResponse($result);
+	}
 
 	
 
