@@ -4,8 +4,6 @@
 \OCP\Util::addScript('readlater', 'bootstrap');  
 \OCP\Util::addScript('readlater', 'bootstrap.min'); 
 
-
-
 \OCP\Util::addStyle('readlater', 'style'); 
 \OCP\Util::addStyle('readlater', 'bootstrap');  
 function readlaterAdd(){
@@ -29,6 +27,10 @@ function readlaterAdd(){
 	<div id="app-content">
 		<div id="firstrun">
 			<?php print_unescaped($this->inc('part.firstrun')) ?>
+			<ul class="latestSharesUL">
+		<?php print_unescaped($this->inc('part.listfeed')) ?>
+		</ul>
 		</div>
+		 
 	</div>
 </div>
