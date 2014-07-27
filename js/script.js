@@ -14,6 +14,7 @@
 
 
 		$("div#addContent").hide();
+		showData();
 		console.log("hello");
 		$('a').click(function () {
 			alert('Hello from your script file');
@@ -52,6 +53,20 @@ $.ajax({
     }).done(function( msg ) {
 	
  alert( "Your content was saved: " + msg );
+    });
+}
+
+//Show saved bookmarks
+function showData(){  
+	$.ajax({
+		type: "GET",
+  		url: OC.generateUrl('/apps/readlater/getall'),
+  		data: "",
+  		contentType : "application/json; charset=utf-8",
+  		dataType : 'json', 
+	}
+		}).done(function( msg ) {
+ 	alert( "All items are displayed: " + msg );
     });
 }
 
