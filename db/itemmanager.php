@@ -38,7 +38,7 @@ class ItemManager {
 	* show item
 	*/
 	public function getItems() {
-	$sql = 'SELECT * FROM readlater_items';
+	$sql = 'SELECT * FROM `*PREFIX*readlater_items`';
 	$query = $this -> db -> prepareQuery($sql);
 	$result = $query -> execute();
 	$rows = array();

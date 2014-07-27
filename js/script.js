@@ -64,7 +64,7 @@ function showData(){
   		data: "",
   		contentType : "application/json; charset=utf-8",
   		dataType : 'json', 
-	}
+	
 		}).done(function( msg ) {
  	alert( "All items are displayed: " + msg );
     });
