@@ -25,7 +25,10 @@ class ItemBusinessLayer {
 		$item['url'] = $url;
 		return $this -> ItemManager -> insert($item);
 	}
-
+	
+	public function getItems() {
+	return $this -> ItemManager -> getItems();
+	}
 	
 }
 ?>
