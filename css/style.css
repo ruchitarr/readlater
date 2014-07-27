@@ -2,3 +2,42 @@
  padding: 3em;  margin: 2em;
 }
 
+
+/* Styling the bookmark widget */
+
+ul.latestSharesUL{
+	/* The bookmark widet */
+	background-color:#f5f5f5;
+	margin:0 auto;
+	padding:10px;
+	width:280px;
+	border:1px solid #e0e0e0;
+	text-shadow:1px 1px 0 white;
+	
+	font-size:13px;
+	color:#666;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+ul.latestSharesUL li{
+	/* Each bookmark entry */
+	background-color:#FAFAFA;
+	border:1px solid #EAEAEA;
+	border-bottom:none;
+	list-style:none;
+	padding:12px;
+}
+
+ul.latestSharesUL li:last-child{
+	/* Targeting the last element of the set */
+	border-bottom:1px solid #EAEAEA;
+}
+
+ul.latestSharesUL,
+ul.latestSharesUL li{
+	/* Adding regular and inset shadows */
+	-moz-box-shadow:1px 1px 0 white inset, 0 0 2px white;
+	-webkit-box-shadow:1px 1px 0 white inset, 0 0 2px white;
+	box-shadow:1px 1px 0 white inset, 0 0 2px white;
+}
+
