@@ -34,4 +34,18 @@ class ItemManager {
 		return $this -> db -> getInsertId('`*PREFIX*readlater_items`');
 
 	}
+	/**
+	* show item
+	*/
+	public function getItems() {
+	$sql = 'SELECT * FROM readlater_items';
+	$query = $this -> db -> prepareQuery($sql);
+	$result = $query -> execute();
+	$rows = array();
+	while ($row = $result -> fetchRow()) {
+	$rows[$row['id']] = $row;
+	}
+	return $rows;
+	}
+	
 }
