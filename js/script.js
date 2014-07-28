@@ -72,11 +72,13 @@ function showData(){
 	var items = [];
 	$.each(msg, function(i, item) {
 
-          items.push('<li><a href="item.url">' + item.url + '</a></li>');
+          items.push('<li><div class="title"><a class="bookmrk" href="item.url">' + item.url + '</a><br/><a class="list-title list-title-with-icon"><img src="<?php echo \\OCP\\Util::imagePath(\'readlater\', \'star.png\');?>"></a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'rename.png\');?>"> </a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'delete.png\');?>"> </a></div>  </li>');
+  alert(item.url);
 
    	});  // close each()
-	alert(msg[0].url);
+	
  	alert( "All items are displayed: " + msg );
+	$('#listfeedUL').append( items.join('') );
     });
 }
 
