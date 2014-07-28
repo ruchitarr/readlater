@@ -38,12 +38,14 @@ class ItemManager {
 	* show item
 	*/
 	public function getItems() {
+	$i=0;
 	$sql = 'SELECT * FROM `*PREFIX*readlater_items`';
 	$query = $this -> db -> prepareQuery($sql);
 	$result = $query -> execute();
 	$rows = array();
 	while ($row = $result -> fetchRow()) {
-	$rows[$row['id']] = $row;
+	$rows[i] = $row;
+	$i=$i+1;
 	}
 	return $rows;
 	}

@@ -27,6 +27,9 @@
 		alert("Add button clicked");
 		alert($('#url').val());
 		saveData();
+		showData();
+		$("div#addContent").hide();
+
 
 		});
 
@@ -66,6 +69,13 @@ function showData(){
   		dataType : 'json', 
 	
 		}).done(function( msg ) {
+	var items = [];
+	$.each(msg, function(i, item) {
+
+          items.push('<li><a href="item.url">' + item.url + '</a></li>');
+
+   	});  // close each()
+	alert(msg[0].url);
  	alert( "All items are displayed: " + msg );
     });
 }
