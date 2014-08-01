@@ -9,12 +9,17 @@
  */
 
 (function ($, OC) {
+	var items = [];
 
 	$(document).ready(function () {
-
-
 		$("div#addContent").hide();
-		showData();
+		//showData();
+		$.when( showData(), showDataDone() ).done(function() {
+			alert( 'Deferred success' );
+		})
+		.fail(function() {
+			alert( 'Deferred fail' );
+		});
 		console.log("hello");
 		$('a').click(function () {
 			alert('Hello from your script file');
@@ -69,7 +74,7 @@ function showData(){
   		dataType : 'json', 
 	
 		}).done(function( msg ) {
-	var items = [];
+
 	$.each(msg, function(i, item) {
 
           items.push('<li><div class="title"><a class="bookmrk" href="item.url">' + item.url + '</a><br/><a class="list-title list-title-with-icon"><img src="<?php echo \\OCP\\Util::imagePath(\'readlater\', \'star.png\');?>"></a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'rename.png\');?>"> </a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'delete.png\');?>"> </a></div>  </li>');
@@ -77,9 +82,14 @@ function showData(){
 
    	});  // close each()
 	
+    });
+}
+
+function showDataDone(){
+
+
  	alert( "All items are displayed: " + msg );
 	$('#listfeedUL').append( items.join('') );
-    });
 }
 
 })(jQuery, OC);
