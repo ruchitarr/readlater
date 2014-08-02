@@ -80,7 +80,7 @@ function showData(){
 
 	$.each(msg, function(i, item) {
 
-          items.push('<li><div class="title"><a class="bookmrk" href="item.url">' + item.url + '</a><br/><a class="list-title list-title-with-icon"><img src="imgStarUrl"></a><a class="list-title list-title-with-icon edit-icon"> </a><a class="list-title list-title-with-icon delete-icon"> </a></div>  </li>');
+          items.push('<li><div class="title"><a class="bookmrk" href="item.url">' + item.url + '</a><br/><a class="list-title list-title-with-icon icon icon-star">&nbsp; </a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename">&nbsp;  </a><a class="list-title list-title-with-icon icon icon-delete">&nbsp;  </a></div>  </li>');
 
   alert(item.url);
 	

@@ -40,12 +40,11 @@ ul.latestSharesUL li{
 	box-shadow:1px 1px 0 white inset, 0 0 2px white;
 }
 
-.star-icon,
-.edit-icon
-.delete-icon {
+.icon {
 	padding-left: 25px;
 	background-repeat: no-repeat;
-	background-position: 5px center;
+	height: 16px ; 
+	width: 16px; 
 }
 
 .star-icon {
