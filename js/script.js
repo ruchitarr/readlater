@@ -10,6 +10,7 @@
 
 (function ($, OC) {
 	var items = [];
+	var imgStarUrl = OC.generateUrl('./apps/readlater/img/star.png');
 
 	$(document).ready(function () {
 		$("div#addContent").hide();
@@ -79,7 +80,7 @@ function showData(){
 
 	$.each(msg, function(i, item) {
 
-          items.push('<li><div class="title"><a class="bookmrk" href="item.url">' + item.url + '</a><br/><a class="list-title list-title-with-icon"><img src="../img/star.png")"></a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'rename.png\');?>"> </a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'delete.png\');?>"> </a></div>  </li>');
+          items.push('<li><div class="title"><a class="bookmrk" href="item.url">' + item.url + '</a><br/><a class="list-title list-title-with-icon star-icon"></a><a class="list-title list-title-with-icon edit-icon"> </a><a class="list-title list-title-with-icon delete-icon"> </a></div>  </li>');
 
   alert(item.url);
 	

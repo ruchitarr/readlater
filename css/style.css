@@ -40,3 +40,23 @@ ul.latestSharesUL li{
 	box-shadow:1px 1px 0 white inset, 0 0 2px white;
 }
 
+.star-icon,
+.edit-icon
+.delete-icon {
+	padding-left: 25px;
+	background-repeat: no-repeat;
+	background-position: 5px center;
+}
+
+.star-icon {
+	background-image: url('../img/star.png');
+}
+
+.edit-icon {
+	background-image: url('../img/rename.png');
+}
+
+.delete-icon {
+	background-image: url('../img/delete.png');
+}
+
