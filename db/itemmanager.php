@@ -44,8 +44,8 @@ class ItemManager {
 	$result = $query -> execute();
 	$rows = array();
 	while ($row = $result -> fetchRow()) {
-	$rows[i] = $row;
-	$i=$i+1;
+	$rows[$i] = $row;
+	$i++;
 	}
 	return $rows;
 	}
