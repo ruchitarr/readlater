@@ -13,7 +13,8 @@
 
 	$(document).ready(function () {
 		$("div#addContent").hide();
-		//showData();
+		showData();
+		showDataDone();
 		$.when( showData(), showDataDone() ).done(function() {
 			alert( 'Deferred success' );
 		})
@@ -33,6 +34,7 @@
 		alert($('#url').val());
 		saveData();
 		showData();
+		showDataDone();
 		$("div#addContent").hide();
 
 
@@ -77,10 +79,14 @@ function showData(){
 
 	$.each(msg, function(i, item) {
 
-          items.push('<li><div class="title"><a class="bookmrk" href="item.url">' + item.url + '</a><br/><a class="list-title list-title-with-icon"><img src="<?php echo \\OCP\\Util::imagePath(\'readlater\', \'star.png\');?>"></a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'rename.png\');?>"> </a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'delete.png\');?>"> </a></div>  </li>');
+          items.push('<li><div class="title"><a class="bookmrk" href="item.url">' + item.url + '</a><br/><a class="list-title list-title-with-icon"><img src="../img/star.png")"></a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'rename.png\');?>"> </a><a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath(\'readlater\', \'delete.png\');?>"> </a></div>  </li>');
+
   alert(item.url);
+	
 
    	});  // close each()
+		$('#listfeedUL').append( items.join('') );
+
 	
     });
 }
