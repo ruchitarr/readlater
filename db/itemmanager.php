@@ -50,4 +50,25 @@ class ItemManager {
 	return $rows;
 	}
 	
+	/**
+	* Get A single item
+	*/
+	public function get($itemId) {
+	$sql = 'SELECT * FROM `*PREFIX*readlater_items` AS item WHERE item.id = ?';
+	$query = $this -> db -> prepareQuery($sql);
+	$query -> bindParam(1, $itemId, \PDO::PARAM_INT);
+	$result = $query -> execute();
+	return $result -> fetchRow();
+	}
+
+	/**
+	* Delete item
+	*/
+	public function delete($itemId) {
+	$sql = 'DELETE FROM `*PREFIX*readlater_items` WHERE `id`=?';
+	$query = $this -> db -> prepareQuery($sql);
+	$query -> bindParam(1, $itemId, \PDO::PARAM_INT);
+	$result = $query -> execute();
+	return array('deleted' => $itemId);
+	}
 }

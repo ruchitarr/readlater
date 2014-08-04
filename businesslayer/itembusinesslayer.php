@@ -30,5 +30,14 @@ class ItemBusinessLayer {
 	return $this -> ItemManager -> getItems();
 	}
 	
+	public function get($itemId) {
+	$result = $this -> ItemManager -> get($itemId);
+	return $result;
+	}
+	public function delete($itemId) {
+	return $this -> ItemManager -> delete($itemId);
+	}
+	
+	
 }
 ?>

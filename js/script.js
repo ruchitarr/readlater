@@ -17,12 +17,11 @@
 		showData();
 		showDataDone();
 		$.when( showData(), showDataDone() ).done(function() {
-			alert( 'Deferred success' );
+			console.log( 'Deferred success' );
 		})
 		.fail(function() {
-			alert( 'Deferred fail' );
+			console.log( 'Deferred fail' );
 		});
-		console.log("hello");
 		$('a').click(function () {
 			alert('Hello from your script file');
 
@@ -37,8 +36,6 @@
 		showData();
 		showDataDone();
 		$("div#addContent").hide();
-
-
 		});
 
 		$('#echo').click(function () {
@@ -53,6 +50,27 @@
 
 		});
 	});
+
+
+$('#addUrl').click(function () {
+	event.preventDefault(); 
+	alert('Hello from your script file');
+	$("div#addContent").show();
+	console.log("hello");
+	return false;
+	});
+//Save Content
+$('#addUrlBtn').click(function(){
+	event.preventDefault(); 
+	alert("Add button clicked");
+	alert($('#url').val());
+	saveData();
+	showData();
+	showDataDone();
+	$("div#addContent").hide();
+	return false;
+});
+
 
 //Function to save Content
 function saveData(){  
@@ -80,7 +98,7 @@ function showData(){
 
 	$.each(msg, function(i, item) {
 
-          items.push('<li><div class="title"><a class="bookmrk" href="item.url">' + item.url + '</a><br/><a class="list-title list-title-with-icon icon icon-star">&nbsp; </a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename">&nbsp;  </a><a class="list-title list-title-with-icon icon icon-delete">&nbsp;  </a></div>  </li>');
+          items.push('<li><div class="title"><a class="bookmrk" href="item.url" id="item.id">' + item.url + '</a><br/><a class="list-title list-title-with-icon icon icon-star">&nbsp; </a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename">&nbsp;  </a><a class="list-title list-title-with-icon icon icon-delete">&nbsp;  </a></div>  </li>');
 
   alert(item.url);
 	
@@ -98,5 +116,31 @@ function showDataDone(){
  	alert( "All items are displayed: " + msg );
 	$('#listfeedUL').append( items.join('') );
 }
+
+
+//remove item
+$('a .icon-delete').click(function(){
+	alert('I was clicked');
+	
+	
+	
+
+});
+
+
+//remove item fn
+function removeItem(){  
+
+$.ajax({
+	type: "DELETE",
+  	url: OC.generateUrl('/apps/readlater/delete'),
+  	data: {id: $('a.bookmrk').attr('id');}
+    }).done(function( msg ) {
+	
+ alert( "Your content was deleted: " + msg );
+    });
+}
+
+
 
 })(jQuery, OC);
