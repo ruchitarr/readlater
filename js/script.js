@@ -134,7 +134,7 @@ function removeItem(){
 $.ajax({
 	type: "DELETE",
   	url: OC.generateUrl('/apps/readlater/delete'),
-  	data: {id: $('a.bookmrk').attr('id');}
+  	data: {id: $('a.bookmrk').attr('id')}
     }).done(function( msg ) {
 	
  alert( "Your content was deleted: " + msg );
