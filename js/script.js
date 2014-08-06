@@ -72,6 +72,7 @@
 
 	function displayData(){
 		$('#listfeedUL').empty();
+		items.length=0;
 		showData();
 		showDataDone();
 		$.when( showData(), showDataDone() ).done(function() {
@@ -99,7 +100,11 @@
 		alert( "Your content was deleted: " + msg );
     		});
 	}
-
+	
+	$(document).on('click','#allItems', function(){
+		displayData();
+		return false;
+});
 
 
 })(jQuery, OC);
