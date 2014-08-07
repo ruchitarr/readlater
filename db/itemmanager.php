@@ -54,10 +54,9 @@ class ItemManager {
 	* Get A single item
 	*/
 	public function search($itemName) {
-	$sql = 'SELECT * FROM `*PREFIX*readlater_items` AS item WHERE item.url = %?%';
+	$sql = 'SELECT * FROM `*PREFIX*readlater_items` AS item WHERE item.url = ?';
 	$query = $this -> db -> prepareQuery($sql);
-	$query -> bindParam(1, $itemName, \PDO::PARAM_INT);
-	$result = $query -> execute();
+	$result = $query -> execute(array('%'.$itemName . '%'));
 	return $result -> fetchRow();
 	}
 
