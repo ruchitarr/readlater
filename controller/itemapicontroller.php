@@ -85,7 +85,7 @@ class ItemApiController extends Controller {
      	 * @NoAdminRequired
      	 */
 	public function searchItem() {
-	$search = $this->params('url');
+	$search = $this->params('itemName');
 	$result = $this->ItemBusinessLayer->searchItems($search);
 	return new JSONResponse($result);
 	}
