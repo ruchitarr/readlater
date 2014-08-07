@@ -30,7 +30,7 @@
 		return false;
 	});
 	
-	//remove item
+	//Remove item
 	$(document).on('click','a.icon-delete', function(){
 		alert('Delete item clicked');
 		removeItem();
@@ -44,14 +44,14 @@
 	//Search items
 	$(document).on('click','a#searchItem', function(){
 		$( "div#searchItem" ).removeClass("hidden");
-		$(document).on('click','#searchItemBtn', function(){
-			alert($('#searchUrl').val());
+		return false;
+	});
+	$(document).on('click','#searchItemBtn', function(){
 			searchItem();
 			$( "div#searchItem" ).addClass("hidden");
 			return false;
 		});
-		return false;
-	});
+
 
 	//Show saved bookmarks
 	function showData(){  
@@ -117,12 +117,14 @@
 	function searchItem(){
 		$('#listfeedUL').empty();
 		items.length=0;
-		alert("search item");
+
 		$.ajax({
 			type: "GET",
   			url: OC.generateUrl('/apps/readlater/search'),
   			data: {itemName: $('#searchUrl').val()},
 		}).done(function( msg ) {
+		alert("search Url");
+		alert($('#searchUrl').val());
 
 		$.each(msg, function(i, item) {
 			console.log(item);
