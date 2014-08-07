@@ -29,7 +29,7 @@ $application->registerRoutes($this, array('routes' => array(
 	array('name' => 'item_api#add_url', 'url' => '/add/url', 'verb' => 'POST'),
 	array('name' => 'item_api#get_all', 'url' => '/getall', 'verb' => 'GET'),
 	array('name' => 'item_api#remove_item', 'url' => '/deleteitem', 'verb' => 'DELETE'),
-	array('name' => 'item_api#search_item', 'url' => '/search/{itemName}', 'verb' => 'GET'),
+	array('name' => 'item_api#search_item', 'url' => '/search', 'verb' => 'GET'),
 
 	
 )));
