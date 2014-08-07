@@ -79,6 +79,15 @@ class ItemApiController extends Controller {
 	}
 	return new JSONResponse($result['deleted']); 
 	}
+	
+	/**
+     	 * Simply method that posts back the payload of the request
+     	 * @NoAdminRequired
+     	 */
+	public function searchItem() {
+	$result = $this->ItemBusinessLayer->searchItems();
+	return new JSONResponse($result);
+	}
 
 	
 

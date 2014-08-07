@@ -59,3 +59,7 @@ ul.latestSharesUL li{
 	background-image: url('../img/delete.png');
 }
 
+.showDiv {
+display: none;
+}
+

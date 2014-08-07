@@ -13,39 +13,45 @@
 	var imgStarUrl = OC.generateUrl('/apps/readlater/img/star.png');
 
 	$(document).ready(function () {
-		$("div#addContent").hide();
 		displayData();
 	});
 
-
+	//Add Item
 	$(document).on('click','a#addUrl', function(){
-		alert('Hello from your script file');
-		$("div#addContent").show();
-		console.log("hello");
+		$( "div#addContent" ).removeClass("hidden");
 		return false;
 	});
-	//Save Content
+	//Save Item
 	$(document).on('click','#addUrlBtn', function(){
-		alert("Add button clicked");
 		alert($('#url').val());
 		saveData();
 		displayData();
-		$("div#addContent").hide();
+		$( "div#addContent" ).addClass("hidden");
 		return false;
-});
-
-
-//Function to save Content
-	function saveData(){  
-		$.ajax({
-			type: "POST",
-  			url: OC.generateUrl('/apps/readlater/add/url'),
-  			data: {url: $('#url').val()}
-    		}).done(function( msg ) {
+	});
 	
- 		alert( "Your content was saved: " + msg );
-    		});
-	}
+	//remove item
+	$(document).on('click','a.icon-delete', function(){
+		alert('Delete item clicked');
+		removeItem();
+	});
+	
+	//Show all items
+	$(document).on('click','#allItems', function(){
+		displayData();
+		return false;
+	});
+	//Search items
+	$(document).on('click','a#searchItem', function(){
+		$( "div#searchItem" ).removeClass("hidden");
+		$(document).on('click','#searchItemBtn', function(){
+			alert($('#searchUrl').val());
+			searchItem();
+			$( "div#searchItem" ).addClass("hidden");
+			return false;
+		});
+		return false;
+	});
 
 	//Show saved bookmarks
 	function showData(){  
@@ -64,7 +70,7 @@
 		$('#listfeedUL').append( items.join('') );
 	 });
 }
-
+	
 	function showDataDone(){
 		console.log( "All items are displayed: " + msg );
 		$('#listfeedUL').append( items.join('') );
@@ -83,13 +89,6 @@
 		});
 
 	}
-	//remove item
-	$(document).on('click','a.icon-delete', function(){
-		alert('Delete item clicked');
-		removeItem();
-	});
-
-
 	//remove item fn
 	function removeItem(){  
 		$.ajax({
@@ -100,11 +99,43 @@
 		alert( "Your content was deleted: " + msg );
     		});
 	}
+
 	
-	$(document).on('click','#allItems', function(){
-		displayData();
-		return false;
-});
+	//Save Item
+	function saveData(){  
+		$.ajax({
+			type: "POST",
+  			url: OC.generateUrl('/apps/readlater/add/url'),
+  			data: {url: $('#url').val()}
+    		}).done(function( msg ) {
+	
+ 		alert( "Your content was saved: " + msg );
+    		});
+	}
+	
+	//search item
+	function searchItem(){
+		$('#listfeedUL').empty();
+		items.length=0;
+		alert("search item");
+		$.ajax({
+			type: "GET",
+  			url: OC.generateUrl('/apps/readlater/search'),
+  			data: {itemName: $('#searchUrl').val()},
+		}).done(function( msg ) {
+
+		$.each(msg, function(i, item) {
+			console.log(item);
+			
+			items.push('<li><div class="title"><a class="bookmrk" href="item.url" id="item.id">' + item.url + '</a><br/><a class="list-title list-title-with-icon icon icon-star">&nbsp; </a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename">&nbsp;  </a><a class="list-title list-title-with-icon icon icon-delete" onclick="removeItem()">&nbsp;  </a></div>  </li>');
+ 			console.log(item.url);
+			});  // close each()
+		$('#listfeedUL').append( items.join('') );
+	 	});
+
+	}
+	
+	
 
 
 })(jQuery, OC);
