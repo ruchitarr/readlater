@@ -51,13 +51,18 @@ class ItemManager {
 	}
 	
 	/**
-	* Get A single item
+	* Search Item
 	*/
 	public function search($itemName) {
-	$sql = 'SELECT * FROM `*PREFIX*readlater_items` AS item WHERE item.url = ?';
+	$sql = 'SELECT * FROM `*PREFIX*readlater_items` AS item WHERE item.url LIKE  ?';
 	$query = $this -> db -> prepareQuery($sql);
 	$result = $query -> execute(array('%'.$itemName . '%'));
-	return $result -> fetchRow();
+	$rows = array();
+        while ($row = $result -> fetchRow()) {
+        $rows[$i] = $row;
+        $i++;
+        }
+	return $rows;
 	}
 
 	/**
