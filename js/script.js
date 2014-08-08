@@ -32,9 +32,8 @@
 	});
 	
 	//Remove item
-	$(document).on('click','a.icon-delete', function(){
-		alert('Delete item clicked');
-		removeItem();
+	$(document).on('click','a.icon-delete', function(e){
+		removeItem($(this).parent().parent().attr('data-itemId'));
 	});
 	
 	//Show all items
@@ -66,8 +65,8 @@
 
 		
 		$.each(msg, function(i, item) {
-			items.push('<li><div class="title"><a class="bookmrk" href="item.url" id="item.id">' + item.url + '</a><br/><a class="list-title list-title-with-icon icon icon-star"></a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename"></a><a class="list-title list-title-with-icon icon icon-delete"></a></div>  </li>');
- 			console.log(item.url);
+			items.push('<li data-itemId="'+ item.id +'"><div class="title"><a class="bookmrk" href="'+ item.url +'" target="_blank" id="" title="'+ item.url +'">' + item.title + '</a><br/><a class="list-title list-title-with-icon icon icon-star"></a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename"></a><a class="list-title list-title-with-icon icon icon-delete"></a></div>  </li>');
+ 			console.log(item);
 		});  // close each()
 		$('#listfeedUL').append( items.join('') );
 		if(items.length > 0){
@@ -77,7 +76,7 @@
 }
 	
 	function showDataDone(){
-		$('#listfeedUL').append( items.join('') );
+		//$('#listfeedUL').append( items.join('') );
 	}
 
 	function displayData(){
@@ -85,23 +84,15 @@
 		items.length=0;
 		showData();
 		showDataDone();
-		$.when( showData(), showDataDone() ).done(function() {
-			console.log( 'Deferred success' );
-		})
-		.fail(function() {
-			console.log( 'Deferred fail' );
-		});
+		
 
 	}
 	//remove item fn
-	function removeItem(){  
-		$.ajax({
-			type: "DELETE",
-  			url: OC.generateUrl('/apps/readlater/delete'),
-  			data: {id: $('a.bookmrk').attr('id')}
-    		}).done(function( msg ) {
-		alert( "Your content was deleted: " + msg );
-    		});
+	function removeItem(id){  
+	console.log(id);
+		$.get(OC.generateUrl('/apps/readlater/deleteitem'),{'id': id},function(){
+			$('li[data-itemId="'+ id +'"]').slideUp();
+		})
 	}
 
 	
@@ -114,6 +105,7 @@
     		}).done(function( msg ) {
 				console.log(msg);
 				$( "div#addContent" ).slideUp();
+				displayData();
 			});
 	}
 	
@@ -140,20 +132,4 @@
 	 	});
 
 	}
-	
-	function file_get_contents_curl($url)
-	{
-    		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-
-		$data = curl_exec($ch);
-		curl_close($ch);
-
-		return $data;
-	}
-
-
 })(jQuery, OC);
