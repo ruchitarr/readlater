@@ -53,9 +53,45 @@ class ItemApiController extends Controller
     public function addURL()
     {
         $url = $this->params('url');
-        return array(
-            'itemid' => $this->ItemBusinessLayer->create($url)
-        );
+		
+		if (strpos($url,'http://') === false && strpos($url,'https://') === false){
+			#for the moment just use http, can be improved to see if https is avalible.
+			$url = 'http://'.$url;
+		}
+		
+		$isURL = (bool)parse_url($url);
+		if($isURL){
+			$html = $this->file_get_contents_curl($url);
+			
+			$doc = new \DOMDocument();
+			@$doc->loadHTML($html);
+			$nodes = $doc->getElementsByTagName('title');
+
+			//get and display what you need:
+			$title = $nodes->item(0)->nodeValue;
+
+			$metas = $doc->getElementsByTagName('meta');
+
+			for ($i = 0; $i < $metas->length; $i++)
+			{
+				$meta = $metas->item($i);
+				if($meta->getAttribute('name') == 'description')
+					$description = $meta->getAttribute('content');
+				if($meta->getAttribute('name') == 'keywords')
+					$keywords = $meta->getAttribute('content');
+			}
+			
+			
+			$item = array();
+			$item['url'] = $url;
+			$item['title'] = $title;
+			$item['description'] = ($description) ? $description : '';
+			$item['keywords'] = ($keywords) ? $keywords :'';
+			
+			$result['itemid'] = $this->ItemBusinessLayer->create($item);
+			
+		}
+        return new JSONResponse($result);
     }
     
     /**
@@ -98,7 +134,7 @@ class ItemApiController extends Controller
         return new JSONResponse($result);
     }
     
-    function file_get_contents_curl($url)
+    private function file_get_contents_curl($url)
     {
         $ch = curl_init();
         
