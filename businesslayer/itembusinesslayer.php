@@ -20,9 +20,7 @@ class ItemBusinessLayer {
 		$this -> ItemManager = $ItemManager;
 	}
 
-	public function create($url) {
-		$item = array();
-		$item['url'] = $url;
+	public function create($item) {
 		return $this -> ItemManager -> insert($item);
 	}
 	

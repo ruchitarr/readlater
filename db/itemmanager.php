@@ -27,10 +27,14 @@ class ItemManager {
 	 * Insert item
 	 */
 	public function insert($item) {
-		$sql = 'INSERT INTO `*PREFIX*readlater_items` (`url`)';
-		$sql .= ' VALUES (?)';
+		$sql = 'INSERT INTO `*PREFIX*readlater_items` (`url`,`title`,`description`,`keywords`)';
+		$sql .= ' VALUES (?,?,?,?)';
 		$query = $this -> db -> prepareQuery($sql);
-		$result = $query -> execute(array($item['url']));
+		$query -> bindParam(1, $item['url'], \PDO::PARAM_INT);
+		$query -> bindParam(2, $item['title'], \PDO::PARAM_STR);
+		$query -> bindParam(3, $item['description'], \PDO::PARAM_STR);
+		$query -> bindParam(4, $item['keywords'], \PDO::PARAM_STR);
+		$result = $query -> execute();
 		return $this -> db -> getInsertId('`*PREFIX*readlater_items`');
 
 	}

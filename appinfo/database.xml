@@ -21,8 +21,27 @@
 				<notnull>true</notnull>
 				<length>4096</length>
 			</field>
-			
-
+			<field>
+				<name>title</name>
+				<type>text</type>
+				<default></default>
+				<notnull>true</notnull>
+				<length>4096</length>
+			</field>			
+			<field>
+				<name>description</name>
+				<type>text</type>
+				<default></default>
+				<notnull>false</notnull>
+				<length>4096</length>
+			</field>
+			<field>
+				<name>keywords</name>
+				<type>text</type>
+				<default></default>
+				<notnull>false</notnull>
+				<length>4096</length>
+			</field>
 			<index>
 				<name>readlater_items_id</name>
 
