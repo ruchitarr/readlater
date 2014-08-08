@@ -19,7 +19,7 @@
 
 	//Add Item
 	$(document).on('click','a#addUrl', function(){
-		$( "div#addContent" ).removeClass("hidden");
+		$( "div#addContent" ).removeClass('hidden').hide().slideDown();
 		return false;
 	});
 	//Save Item
@@ -64,6 +64,7 @@
   			dataType : 'json', 
 		}).done(function( msg ) {
 
+		
 		$.each(msg, function(i, item) {
 			items.push('<li><div class="title"><a class="bookmrk" href="item.url" id="item.id">' + item.url + '</a><br/><a class="list-title list-title-with-icon icon icon-star">&nbsp; </a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename">&nbsp;  </a><a class="list-title list-title-with-icon icon icon-delete" onclick="removeItem()">&nbsp;  </a></div>  </li>');
  			console.log(item.url);
@@ -73,7 +74,6 @@
 }
 	
 	function showDataDone(){
-		console.log( "All items are displayed: " + msg );
 		$('#listfeedUL').append( items.join('') );
 	}
 
@@ -108,7 +108,10 @@
 			type: "POST",
   			url: OC.generateUrl('/apps/readlater/add/url'),
   			data: {url: $('#url').val()}
-    		}).done(function( msg ) {alert( "Your content was saved: " + msg );});
+    		}).done(function( msg ) {
+				console.log(msg);
+				$( "div#addContent" ).slideUp();
+			});
 	}
 	
 	//search item
