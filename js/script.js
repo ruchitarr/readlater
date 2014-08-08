@@ -70,6 +70,9 @@
  			console.log(item.url);
 		});  // close each()
 		$('#listfeedUL').append( items.join('') );
+		if(items.length > 0){
+			$('#firstrun').hide();
+		}
 	 });
 }
 	

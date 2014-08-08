@@ -27,11 +27,11 @@ function readlaterAdd(){
 	<div id="app-content">
 		<div id="firstrun">
 			<?php print_unescaped($this->inc('part.firstrun')) ?>
+		</div>
 			<?php print_unescaped($this->inc('part.listfeed')) ?>
 		<ul class="latestSharesUL" id="listfeedUL">
 
 		</ul>
-		</div>
 		 
 	</div>
 </div>
