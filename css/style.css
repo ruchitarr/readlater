@@ -46,7 +46,11 @@ ul.latestSharesUL li{
 	height: 16px ; 
 	width: 16px; 
 }
-
+.icon{
+display: inline-block;
+height: 16px;
+width: 16px;
+}
 .star-icon {
 	background-image: url('../img/star.png');
 }
