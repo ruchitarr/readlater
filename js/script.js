@@ -19,7 +19,7 @@
 
 	//Add Item
 	$(document).on('click','a#addUrl', function(){
-		$( "div#addContent" ).removeClass("hidden");
+		$( "div#addContent" ).removeClass('hidden').hide().slideDown();
 		return false;
 	});
 	//Save Item
@@ -32,9 +32,8 @@
 	});
 	
 	//Remove item
-	$(document).on('click','a.icon-delete', function(){
-		alert('Delete item clicked');
-		removeItem();
+	$(document).on('click','a.icon-delete', function(e){
+		removeItem($(this).parent().parent().attr('data-itemId'));
 	});
 	
 	//Show all items
@@ -64,17 +63,20 @@
   			dataType : 'json', 
 		}).done(function( msg ) {
 
+		
 		$.each(msg, function(i, item) {
-			items.push('<li><div class="title"><a class="bookmrk" href="item.url" id="item.id">' + item.url + '</a><br/><a class="list-title list-title-with-icon icon icon-star">&nbsp; </a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename">&nbsp;  </a><a class="list-title list-title-with-icon icon icon-delete" onclick="removeItem()">&nbsp;  </a></div>  </li>');
- 			console.log(item.url);
+			items.push('<li data-itemId="'+ item.id +'"><div class="title"><a class="bookmrk" href="'+ item.url +'" target="_blank" id="" title="'+ item.url +'">' + item.title + '</a><br/><a class="list-title list-title-with-icon icon icon-star"></a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename"></a><a class="list-title list-title-with-icon icon icon-delete"></a></div>  </li>');
+ 			console.log(item);
 		});  // close each()
 		$('#listfeedUL').append( items.join('') );
+		if(items.length > 0){
+			$('#firstrun').hide();
+		}
 	 });
 }
 	
 	function showDataDone(){
-		console.log( "All items are displayed: " + msg );
-		$('#listfeedUL').append( items.join('') );
+		//$('#listfeedUL').append( items.join('') );
 	}
 
 	function displayData(){
@@ -82,23 +84,15 @@
 		items.length=0;
 		showData();
 		showDataDone();
-		$.when( showData(), showDataDone() ).done(function() {
-			console.log( 'Deferred success' );
-		})
-		.fail(function() {
-			console.log( 'Deferred fail' );
-		});
+		
 
 	}
 	//remove item fn
-	function removeItem(){  
-		$.ajax({
-			type: "DELETE",
-  			url: OC.generateUrl('/apps/readlater/delete'),
-  			data: {id: $('a.bookmrk').attr('id')}
-    		}).done(function( msg ) {
-		alert( "Your content was deleted: " + msg );
-    		});
+	function removeItem(id){  
+	console.log(id);
+		$.get(OC.generateUrl('/apps/readlater/deleteitem'),{'id': id},function(){
+			$('li[data-itemId="'+ id +'"]').slideUp();
+		})
 	}
 
 	
@@ -108,7 +102,11 @@
 			type: "POST",
   			url: OC.generateUrl('/apps/readlater/add/url'),
   			data: {url: $('#url').val()}
-    		}).done(function( msg ) {alert( "Your content was saved: " + msg );});
+    		}).done(function( msg ) {
+				console.log(msg);
+				$( "div#addContent" ).slideUp();
+				displayData();
+			});
 	}
 	
 	//search item
@@ -134,20 +132,4 @@
 	 	});
 
 	}
-	
-	function file_get_contents_curl($url)
-	{
-    		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-
-		$data = curl_exec($ch);
-		curl_close($ch);
-
-		return $data;
-	}
-
-
 })(jQuery, OC);

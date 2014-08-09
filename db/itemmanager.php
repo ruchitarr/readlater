@@ -42,16 +42,14 @@ class ItemManager {
 	* show item
 	*/
 	public function getItems() {
-	$i=0;
-	$sql = 'SELECT * FROM `*PREFIX*readlater_items`';
-	$query = $this -> db -> prepareQuery($sql);
-	$result = $query -> execute();
-	$rows = array();
-	while ($row = $result -> fetchRow()) {
-	$rows[$i] = $row;
-	$i++;
-	}
-	return $rows;
+		$sql = 'SELECT * FROM `*PREFIX*readlater_items`';
+		$query = $this -> db -> prepareQuery($sql);
+		$result = $query -> execute();
+		$rows = array();
+		while ($row = $result -> fetchRow()) {
+			$rows[] = $row;
+		}
+		return $rows;
 	}
 	
 	/**

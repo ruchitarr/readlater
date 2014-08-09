@@ -111,10 +111,10 @@ class ItemApiController extends Controller
     {
         $errors   = array();
         $itemId   = $this->params('id');
-        $findItem = $this->ItemBusinessLayer->get($itemId);
+       /* $findItem = $this->ItemBusinessLayer->get($itemId);
         if (empty($findItem)) {
             array_push($errors, 'Item not found');
-        }
+        }*/
         if (empty($errors)) {
             $result['deleted'] = $this->ItemBusinessLayer->delete($itemId);
         } else {
