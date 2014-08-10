@@ -71,7 +71,7 @@ class ItemManager {
 	* Delete item
 	*/
 	public function delete($itemId) {
-	$sql = 'DELETE FROM `*PREFIX*readlater_items` WHERE `id`=?';
+	$sql = 'DELETE FROM `*PREFIX*readlater_items` WHERE `id` LIKE ?';
 	$query = $this -> db -> prepareQuery($sql);
 	$query -> bindParam(1, $itemId, \PDO::PARAM_INT);
 	$result = $query -> execute();
