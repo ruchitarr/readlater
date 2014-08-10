@@ -26,7 +26,6 @@
 	$(document).on('click','#addUrlBtn', function(){
 		alert($('#url').val());
 		saveData();
-		displayData();
 		$( "div#addContent" ).addClass("hidden");
 		return false;
 	});
