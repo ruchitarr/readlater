@@ -8,6 +8,10 @@
 	margin-top: 0;
 }
 
+.with-icon li {
+	background-position: 10px center;
+}
+
 .icon {
 	padding-left: 25px;
 	background-repeat: no-repeat;

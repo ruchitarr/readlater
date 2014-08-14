@@ -1,5 +1,6 @@
-<li>
-        <a id ="addUrl" class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath('readlater', 'add.png');?>">  <span><?php p($l->t('Add Content'))?></span></a>
+<li class="icon-add">
+        <a id ="addUrl" class="list-title list-title-with-icon">
+        <span><?php p($l->t('Add Content'))?></span></a>
 
         <div id="addContent" class="add-new-popup hidden">
 

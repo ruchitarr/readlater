@@ -1,5 +1,5 @@
-<li class="starred">
-	<a class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath('readlater', 'starred.svg');?>"/>
+<li class="icon-starred starred">
+	<a class="list-title list-title-with-icon">
 	   <?php p($l->t('Liked')) ?>
 	</a>
 </li>
