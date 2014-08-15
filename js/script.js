@@ -64,7 +64,7 @@
 
 		
 		$.each(msg, function(i, item) {
-			items.push('<li data-itemId="'+ item.id +'"><div class="title"><a class="bookmrk" href="'+ item.url +'" target="_blank" id="" title="'+ item.url +'">' + item.title +  '</a> <div class="itemDesc">'+ item.description+ '</div><br/><a class="list-title list-title-with-icon icon icon-star"></a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename"></a><a class="list-title list-title-with-icon icon icon-delete"></a></div>  </li>');
+			items.push('<li class="section" data-itemId="'+ item.id +'"><div class="title"><h2><a class="bookmrk" href="'+ item.url +'" target="_blank" id="" title="'+ item.url +'">' + item.title +  '</a></h2> <div class="itemDesc">'+ item.description+ '</div><br/><a class="list-title list-title-with-icon icon icon-star"></a>&nbsp;<a class="list-title list-title-with-icon icon icon-rename"></a><a class="list-title list-title-with-icon icon icon-delete"></a></div>  </li>');
  			console.log(item);
 		});  // close each()
 		$('#listfeedUL').append( items.join('') );

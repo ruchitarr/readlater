@@ -1,5 +1,5 @@
-<li>
-	<a id="allItems" class="list-title list-title-with-icon"><img src="<?php echo \OCP\Util::imagePath('readlater', 'documents.png');?>">
+<li class="icon-list">
+	<a id="allItems" class="list-title list-title-with-icon">
 	   <?php p($l->t('All Items'))?>
 	</a>
 	
